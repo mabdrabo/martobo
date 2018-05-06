@@ -1,0 +1,12 @@
+Package: martobo
+Title: What the Package Does (one line, title case)
+Version: 0.1
+Authors@R: person("Mahmoud", "Abdrabo", email = "abdrabo.mahmoud@gmail.com", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
+Depends: R (>= 3.4.2)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports:
+    tidyverse
+RoxygenNote: 6.0.1
