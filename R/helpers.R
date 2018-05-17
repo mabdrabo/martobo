@@ -2,14 +2,14 @@
 #' @param date Date
 #' @export
 year.month <- function(date) {
-  date %>% {paste0(year(.), '_', sprintf("%02d", month(.)))}
+  date %>% {paste0(lubridate::year(.), '_', sprintf("%02d", lubridate::month(.)))}
 }
 
 #' year.week
 #' @param date Date
 #' @export
 year.week <- function(date) {
-  date %>% {paste0(year(.), '_', sprintf("%02d", epiweek(.)))}
+  date %>% {paste0(lubridate::year(.), '_', sprintf("%02d", lubridate::epiweek(.)))}
 }
 
 #' time_diff
@@ -27,9 +27,9 @@ time_diff <- function(time2, time1, unit='mins', round_n=2) {
 #' @param numeric logical
 #' @export
 week_diff <- function(week2, week1, numeric = F) {
-  interval(as.Date(paste0(week1, '.1'), format='%Y_%U.%w'),
-           as.Date(paste0(week2, '.1'), format='%Y_%U.%w')) %/%
-    weeks(1) %>% as.numeric() %>%
+  lubridate::interval(as.Date(paste0(week1, '.1'), format='%Y_%U.%w'),
+                      as.Date(paste0(week2, '.1'), format='%Y_%U.%w')) %/%
+    lubridate::weeks(1) %>% as.numeric() %>%
     ifelse(numeric, ., sprintf("%02d", .))
 }
 
@@ -41,7 +41,7 @@ week_diff <- function(week2, week1, numeric = F) {
 month_diff <- function(month2, month1, numeric = F) {
   interval(as.Date(paste0(month1, '.1'), format='%Y_%m.%d'),
            as.Date(paste0(month2, '.1'), format='%Y_%m.%d')) %/%
-    months(1) %>% as.numeric() %>%
+    lubridate::months(1) %>% as.numeric() %>%
     ifelse(numeric, ., sprintf("%02d", .))
 }
 
@@ -81,14 +81,14 @@ readable_week_range <- function(year.week.range) {
 #' @param date Date
 #' @export
 first_day_this_week <- function(date = today()) {
-  date - days(day_of_week(date))
+  date - lubridate::days(day_of_week(date))
 }
 
 #' first_day_this_month
 #' @param date Date
 #' @export
 first_day_this_month <- function(date = today()) {
-  date - days(day_of_month(date) - 1)
+  date - lubridate::days(day_of_month(date) - 1)
 }
 
 
