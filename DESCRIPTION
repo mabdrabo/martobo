@@ -8,5 +8,5 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports:
-    tidyverse
+    tidyverse,lubridate
 RoxygenNote: 6.0.1
