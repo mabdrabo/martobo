@@ -106,3 +106,11 @@ last_week <- function(date = today()) {
 last_month <- function(date = today()) {
   year.month(first_day_this_month(date) - 1)
 }
+
+
+#' Week of Month
+#' @param date Date
+#' @export
+week_of_month <- function(date = lubridate::today()) {
+  1 + lubridate::week(date) - lubridate::week(first_day_this_month(date))
+}
